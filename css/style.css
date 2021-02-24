@@ -1,0 +1,92 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.listado{
+
+    margin-top: 5%;
+   
+}
+
+.botonFormulario{
+    padding: 15px;
+    margin-top: 25px;
+    padding-right: 25px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5%;
+    width: 150px;
+    height: 120px; 
+}
+form{
+    margin-top: 5%;
+    width: 75%;
+    text-align: center;
+}
+
+form label{
+    font-size: 17px;
+}
+
+.display-5{
+    color: white;
+    padding: 30px;
+    text-align: right;
+    border-bottom: 13px solid rgb(255, 255, 255);
+}
+#titulo{
+    background-color: #046cf3f5;
+    border-bottom: 5px solid rgb(8, 143, 233);
+}
+
+input{
+    -webkit-box-shadow: 10px 10px 24px -14px rgba(0,0,0,0.69);
+    -moz-box-shadow: 10px 10px 24px -14px rgba(0,0,0,0.69);
+    box-shadow: 10px 10px 24px -14px rgba(0,0,0,0.69);
+}
+label{
+    font: bold;
+    font-size: large;
+}
+.error {
+    background-color:yellow;
+    }
+
+    table{
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        margin-left: 25%;
+    }
+
+    table thead tr {
+        background-color: #046cf3f5;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    table th,
+    table td {
+    padding: 12px 15px;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #003098;
+}
+
+table tbody tr.active-row {
+    font-weight: bold;
+    color: #4e85fa;
+}

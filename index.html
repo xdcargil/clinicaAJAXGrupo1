@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo1</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+  <div class="container-fluid" id="titulo">
+    <h1 class="display-5">Dietas Machado</h1>
+  </div>
+
+
+  <div class="container-fluid">    <!--Listados BOTONES-->
+
+    <div class="row">
+      <div class="col-md-2">
+        <button type="button" class="btn btn-primary btn-lg botonFormulario" id="botonListado1">Mostrar clientes</button>
+        <button type="button" class="btn btn-primary btn-lg botonFormulario" id="botonListado2">Mostrar dietas</button>
+        <button type="button" class="btn btn-primary btn-lg botonFormulario" id="botonListado3">Filtro Clientes</button>
+
+      </div>
+
+      <div class="col-md-10">        <!--Listados DIV-->
+
+        <div id="listado1" class="listado" >
+          
+        </div>
+
+
+        <div id="listado2" class="listado" >
+        </div>
+
+        <div id="combo" class="listado">
+        </div>
+
+
+        <div id="listado3" class="listado">
+          <div>        
+            <form id="formularioFiltrarDNI" name="formularioFiltrarDNI">
+              <div class="form-group">
+                <label for="dni">DNI</label>
+                <input type="text" class="form-control" id="buscarPorDNI" name="DNI">
+                <small id="buscarPorDNI" class="form-text text-muted">Escriba el DNI del Cliente a mostrar.</small>
+              </div>
+              <input type="button" id="btnBuscarFiltroDNI" name="btnBuscarFiltroDNI" class="btn btn-info" value="Buscar" />
+            </form> 
+      
+          </div>
+        </div>
+   
+      </div>
+    </div>
+
+  </div>
+  <hr>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-2">
+        <div id="botonesFormulario">  <!--Formulario BOTONES-->
+          <button type="button" class="btn btn-primary btn-lg botonFormulario" id="altaCliente">Alta Cliente</button>
+          <button type="button" class="btn btn-primary btn-lg botonFormulario" id="bajaCliente">Baja Cliente</button>
+        </div>
+
+      </div>
+      
+      <div class="col-md-10">     <!--Formularios -->
+        <div class="container">
+
+          <div id="formularioBaja" >
+            <form id="formularioBaja">
+              <div class="form-group">
+                <label for="dni">DNI</label>
+                <input type="text" class="form-control" id="quitar">
+              </div>
+              <input type="button" id="btnAceptarBajaPersona" name="btnAceptarBajaPersona" class="btn btn-info" value="Aceptar" />
+            </form>  
+        </div>
+
+          <div id="formularioAlta">
+            <form id="formularioAlta">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="nombra">Nombre</label>
+                  <input type="text" class="form-control" id="inputNombre">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="apellidos">Apellidos</label>
+                  <input type="text" class="form-control" id="inputApellidos">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="dni">DNI</label>
+                <input type="text" class="form-control" id="dni">
+              </div>
+              <input type="button" id="btnAceptarAltaPersona" name="btnAceptarAltaPersona" class="btn btn-info" value="Aceptar" />
+            </form>
+          </div>
+
+      </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="js/cliente.js"></script>
+  <script src="js/dietista.js"></script>
+  <script src="js/dieta.js"></script>
+  <script src="js/clinica.js"></script>
+  <script src="js/codigo.js"></script>
+  <script src="js/validar.js"></script>
+  <script src="js/dietaxcliente.js"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>
