@@ -207,11 +207,13 @@ function mostrarFormularioAltaDietista(){
     let listado2 = document.getElementById('listado2');
     let listado3 = document.getElementById('listado3');
     let formularioBaja = document.getElementById('formularioBaja');
+    let formularioAltaUsuario = document.getElementById('formularioAlta');
 
     listado1.style.display = "none";
     listado2.style.display = "none";
     listado3.style.display = "none";
     formularioBaja.style.display = "none";
+    formularioAltaUsuario.style.display="none";
 
     let formularioAlta = document.getElementById('formularioAltaDietista');
 
