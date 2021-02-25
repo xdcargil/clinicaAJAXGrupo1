@@ -51,8 +51,6 @@
               </div>
               <input type="button" id="btnBuscarFiltroDNI" name="btnBuscarFiltroDNI" class="btn btn-info" value="Buscar" />
             </form> 
-            <div id="resultado">
-            </div>
       
           </div>
         </div>
@@ -69,6 +67,7 @@
         <div id="botonesFormulario">  <!--Formulario BOTONES-->
           <button type="button" class="btn btn-primary btn-lg botonFormulario" id="altaCliente">Alta Cliente</button>
           <button type="button" class="btn btn-primary btn-lg botonFormulario" id="bajaCliente">Baja Cliente</button>
+          <button type="button" class="btn btn-primary btn-lg botonFormulario" id="altaDietista">Alta dietista</button>
         </div>
 
       </div>
@@ -105,6 +104,28 @@
                 <input type="text" class="form-control" id="dni">
               </div>
               <input type="button" id="btnAceptarAltaPersona" name="btnAceptarAltaPersona" class="btn btn-info" value="Aceptar" />
+            </form>
+          </div>
+
+          <div id="divFormularioAltaDietista">
+            <form id="formularioAltaDietista">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="nombra">Nombre</label>
+                  <input type="text" class="form-control" id="inputNombre">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="apellidos">Apellidos</label>
+                  <input type="text" class="form-control" id="inputApellidos">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="dni">DNI</label>
+                <input type="text" class="form-control" id="dni">
+              </div>
+              <input type="button" id="btnAceptarAltaDietista" name="btnAceptarAltaDietista" class="btn btn-info" value="Aceptar" />
             </form>
           </div>
 

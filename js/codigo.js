@@ -12,6 +12,7 @@ limpiaPantalla();
 
 document.getElementById("btnAceptarAltaPersona").addEventListener("click",altaUsuario);
 document.getElementById("btnAceptarBajaPersona").addEventListener("click",bajaUsuario);
+document.getElementById("btnAceptarAltaDietista").addEventListener("click",altaDietista);
 
 var botonBusquedaConFiltro = document.getElementById('btnBuscarFiltroDNI');
 botonBusquedaConFiltro.addEventListener('click', muestraClientesConFiltro); 
@@ -33,7 +34,8 @@ botonAltaCliente.addEventListener("click", mostrarFormularioAltaCliente);
 var botonBajaCliente = document.getElementById('bajaCliente');
 botonBajaCliente.addEventListener("click", mostrarFormularioBajaCliente);
 
-
+var btonAltaDietista = document.getElementById('altaDietista');
+botonBajaCliente.addEventListener("click", mostrarFormularioAltaDietista);
 
 
 //funcion para limpiar pantalla
@@ -45,13 +47,14 @@ function limpiaPantalla(){
     let listado3 = document.getElementById('listado3');
     let formularioAlta = document.getElementById('formularioAlta');
     let formularioBaja = document.getElementById('formularioBaja');
-    
+    let formularioAltaDietista = document.getElementById('formularioAltaDietista');
+
     listado1.style.display = "none";
     listado2.style.display = "none";
     listado3.style.display = "none";
     formularioAlta.style.display = "none";
     formularioBaja.style.display = "none";
-
+    formularioAltaDietista.style.display = "none";
 }
 
 //funciones para mostrar formularios
@@ -62,11 +65,13 @@ function mostrarFormularioAltaCliente(){
     let listado2 = document.getElementById('listado2');
     let listado3 = document.getElementById('listado3');
     let formularioBaja = document.getElementById('formularioBaja');
+    let formularioAltaDietista = document.getElementById('formularioAltaDietista');
     
     listado1.style.display = "none";
     listado2.style.display = "none";
     listado3.style.display = "none";
     formularioBaja.style.display = "none";
+    formularioAltaDietista.style.display = "none";
 
     let formularioAlta = document.getElementById('formularioAlta');
 
@@ -84,11 +89,13 @@ function mostrarFormularioBajaCliente(){
     let listado2 = document.getElementById('listado2');
     let listado3 = document.getElementById('listado3');
     let formularioAlta = document.getElementById('formularioAlta');
+    let formularioAltaDietista = document.getElementById('formularioAltaDietista');
     
     listado1.style.display = "none";
     listado2.style.display = "none";
     listado3.style.display = "none";
     formularioAlta.style.display = "none";
+    formularioAltaDietista.style.display = "none";
 
     let formularioBaja = document.getElementById('formularioBaja');
 
@@ -111,11 +118,13 @@ function mostrarListado1() {
     let listado3 = document.getElementById('listado3');
     let formularioAlta = document.getElementById('formularioAlta');
     let formularioBaja = document.getElementById('formularioBaja');
+    let formularioAltaDietista = document.getElementById('formularioAltaDietista');
     
     listado2.style.display = "none";
     listado3.style.display = "none";
     formularioAlta.style.display = "none";
     formularioBaja.style.display = "none";
+    formularioAltaDietista.style.display = "none";
 
     let listado1 = document.getElementById('listado1');
 
@@ -136,11 +145,13 @@ function mostrarListado2() {
     let listado3 = document.getElementById('listado3');
     let formularioAlta = document.getElementById('formularioAlta');
     let formularioBaja = document.getElementById('formularioBaja');
+    let formularioAltaDietista = document.getElementById('formularioAltaDietista');
     
     listado1.style.display = "none";
     listado3.style.display = "none";
     formularioAlta.style.display = "none";
     formularioBaja.style.display = "none";
+    formularioAltaDietista.style.display = "none";
 
     let listado2 = document.getElementById('listado2');
     console.log(listado2.firstChild)
@@ -161,11 +172,13 @@ function mostrarListado3() {
     let listado2 = document.getElementById('listado2');
     let formularioAlta = document.getElementById('formularioAlta');
     let formularioBaja = document.getElementById('formularioBaja');
+    let formularioAltaDietista = document.getElementById('formularioAltaDietista');
     
     listado1.style.display = "none";
     listado2.style.display = "none";
     formularioAlta.style.display = "none";
     formularioBaja.style.display = "none";
+    formularioAltaDietista.style.display = "none";
 
     let listado3 = document.getElementById('listado3');
 
@@ -185,6 +198,29 @@ function mostrarListado3() {
     }
 }
 
+
+function mostrarFormularioAltaDietista(){
+
+    let listado1 = document.getElementById('listado1');
+    let listado2 = document.getElementById('listado2');
+    let listado3 = document.getElementById('listado3');
+    let formularioBaja = document.getElementById('formularioBaja');
+
+    listado1.style.display = "none";
+    listado2.style.display = "none";
+    listado3.style.display = "none";
+    formularioBaja.style.display = "none";
+
+    let formularioAlta = document.getElementById('formularioAltaDietista');
+
+    if (formularioAlta.style.display == "block") {
+        formularioAlta.style.display = "none";
+    }
+    else {
+        formularioAlta.style.display = "block";
+    }
+
+}
 
 
 //LOCAL STORAGE
@@ -290,6 +326,51 @@ function procesoRespuestaBajaPersona(oDatos, sStatus, oXHR) {
         formularioBaja.reset();
     }
 }
+
+function altaDietista(oEVento) {
+
+    if (validarAltaDietista()) {
+        // Proceso
+
+             let dni = formularioAltaDietista.dni.value.trim();
+            let nombre = formularioAltaDietista.inputNombre.value.trim();
+            let apellido = formularioAltaDietista.inputApellidos.value.trim();
+    
+        $.get("php/altaDietistaJson.php?dni="+dni+"&nombre="+nombre+"&apellido="+apellido,respuestaJson, 'json');
+
+    }
+
+}
+
+function respuestaJson(data) {
+
+    if (oDatos.error) {
+        alert(oDatos.mensaje);
+    } else {
+        alert(oDatos.mensaje);
+        formularioAlta.reset();
+    }
+
+  }
+
+  function validarAltaDietista() {
+
+    var bValido = true;
+    var sError = "";
+
+    if (formularioAltaDietista.dni.value.trim().length == 0 ||
+    formularioAltaDietista.inputNombre.value.trim().length == 0 ||
+    formularioAltaDietista.inputApellidos.value.trim().length == 0) {
+        sError += "Campos no rellenos";
+        bValido = false;
+    }
+
+    if (bValido == false) {
+        alert(sError);
+    }
+    return bValido;
+}
+
 
 function altaUsuario() {
     if (validarAltaPersona()) {
