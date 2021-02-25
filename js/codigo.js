@@ -35,7 +35,7 @@ var botonBajaCliente = document.getElementById('bajaCliente');
 botonBajaCliente.addEventListener("click", mostrarFormularioBajaCliente);
 
 var btonAltaDietista = document.getElementById('altaDietista');
-botonBajaCliente.addEventListener("click", mostrarFormularioAltaDietista);
+botonBajaClibtonAltaDietistaente.addEventListener("click", mostrarFormularioAltaDietista);
 
 
 //funcion para limpiar pantalla
