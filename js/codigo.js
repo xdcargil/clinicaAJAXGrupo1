@@ -96,6 +96,9 @@ function mostrarFormularioBajaCliente(){
     }
 }
 
+function listarClientes(){
+    $('#listado1').load("php/getDatosClientesHTML.php");
+}
 
 //funciones mostrar listado
 function mostrarListado1() {
@@ -176,7 +179,6 @@ function mostrarListado3() {
 
     }
 }
-
 
 
 
