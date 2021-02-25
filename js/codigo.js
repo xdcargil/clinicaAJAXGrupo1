@@ -13,6 +13,9 @@ limpiaPantalla();
 document.getElementById("btnAceptarAltaPersona").addEventListener("click",altaUsuario);
 document.getElementById("btnAceptarBajaPersona").addEventListener("click",bajaUsuario);
 
+var botonBusquedaConFiltro = document.getElementById('btnBuscarFiltroDNI');
+botonBusquedaConFiltro.addEventListener('click', muestraClientesConFiltro); 
+
 
 var botonListado1 = document.getElementById('botonListado1');
 botonListado1.addEventListener("click", mostrarListado1);
@@ -166,6 +169,7 @@ function mostrarListado3() {
 
     let listado3 = document.getElementById('listado3');
 
+    formularioFiltrarDNI.reset();
 
     if (listado3.style.display == "block") {
         listado3.style.display = "none";
@@ -351,3 +355,116 @@ function validarAltaPersona() {
     }
     return bValido;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//METODO CON FILTROS
+
+function objetoXHR() {
+    if (window.XMLHttpRequest) {
+      // El navegador implementa la interfaz XHR de forma nativa
+      return new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+      var versionesIE = new Array(
+        "MsXML2.XMLHTTP.5.0",
+        "MsXML2.XMLHTTP.4.0",
+        "MsXML2.XMLHTTP.3.0",
+        "MsXML2.XMLHTTP",
+        "Microsoft.XMLHTTP"
+      );
+      for (var i = 0; i < versionesIE.length; i++) {
+        try {
+          return new ActiveXObject(versionesIE[i]);
+        } catch (errorControlado) {} //Capturamos el error,
+      }
+    }
+    throw new Error("No se pudo crear el objeto XMLHTTPRequest");
+  }
+
+
+  function muestraClientesConFiltro() {
+
+    let dni = ""+document.getElementById('buscarPorDNI').value.trim();
+
+    //console.log(dni);
+    let oAJAX = objetoXHR();
+  
+    oAJAX.addEventListener("readystatechange", respuestatHtml);
+  
+    oAJAX.open("GET", "PHP/getClientesHTMLConFiltro.php?dni="+dni, true);
+  //puede que de fallo
+    oAJAX.send(null);
+}
+  
+
+
+function respuestatHtml(data) {
+    console.log(data);
+  
+    if (this.readyState == 4 && this.status == 200) {
+        if(this.response=="vacio"){
+            document.getElementById('resultado').innerHTML="No existe ninguna persona con ese DNI";
+        }
+        else{
+            document.getElementById("resultado").innerHTML = this.response;
+        }
+    }
+  }
