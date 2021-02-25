@@ -35,7 +35,7 @@ var botonBajaCliente = document.getElementById('bajaCliente');
 botonBajaCliente.addEventListener("click", mostrarFormularioBajaCliente);
 
 var btonAltaDietista = document.getElementById('altaDietista');
-botonBajaClibtonAltaDietistaente.addEventListener("click", mostrarFormularioAltaDietista);
+btonAltaDietista.addEventListener("click", mostrarFormularioAltaDietista);
 
 
 //funcion para limpiar pantalla
@@ -339,6 +339,9 @@ function altaDietista(oEVento) {
         $.get("php/altaDietistaJson.php?dni="+dni+"&nombre="+nombre+"&apellido="+apellido,respuestaJson, 'json');
 
     }
+
+    alert('Alta dietista realizada');
+    formularioAltaDietista.reset();
 
 }
 
