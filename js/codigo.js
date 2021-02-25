@@ -184,6 +184,8 @@ function mostrarListado3() {
 
     formularioFiltrarDNI.reset();
 
+    document.getElementById('resultado').innerHTML="";
+
     if (listado3.style.display == "block") {
         listado3.style.display = "none";
     }
@@ -444,62 +446,6 @@ function validarAltaPersona() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //METODO CON FILTROS
 
 function objetoXHR() {
@@ -528,7 +474,7 @@ function objetoXHR() {
 
     let dni = ""+document.getElementById('buscarPorDNI').value.trim();
 
-    //console.log(dni);
+    console.log(dni);
     let oAJAX = objetoXHR();
   
     oAJAX.addEventListener("readystatechange", respuestatHtml);
@@ -541,7 +487,7 @@ function objetoXHR() {
 
 
 function respuestatHtml(data) {
-    console.log(data);
+    console.log(this.response);
   
     if (this.readyState == 4 && this.status == 200) {
         if(this.response=="vacio"){
