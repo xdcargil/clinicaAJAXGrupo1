@@ -200,6 +200,36 @@ function procesoRespuestaGetLugares(sHTML) {
 
 }
 
+function listarDietas(oEvento)
+{
+ 
+    let oE = oEvento || window.event;
+    $.get("PHP/getDietaXML.php", null, respuestaXMLJqueary, 'xml');
+
+}
+
+
+
+
+function respuestaXMLJqueary(data, status, oXHR){
+    
+    console.log(data);
+    var oOptions = data.querySelectorAll("dieta");
+    console.log(oOptions);
+    var table = "<table>";
+
+    for (let i = 0; i < oOptions.length; i++) {
+      table +=
+        "<tr><td>" +
+        oOptions[i].querySelector("nombre").textContent +
+        "</td><td>" +
+        oOptions[i].querySelector("tratamiento").textContent +
+        "</td></tr>";
+    }
+    table += "</table>";
+
+    $("#listado2").html(table);
+}
 
 
 
