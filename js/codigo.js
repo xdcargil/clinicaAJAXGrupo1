@@ -10,6 +10,8 @@ limpiaPantalla();
 
 
 document.getElementById("btnAceptarAltaPersona").addEventListener("click",altaUsuario);
+document.getElementById("btnAceptarBajaPersona").addEventListener("click",bajaUsuario);
+
 
 var botonListado1 = document.getElementById('botonListado1');
 botonListado1.addEventListener("click", mostrarListado1);
@@ -176,56 +178,6 @@ function mostrarListado3() {
 }
 
 
-function altaUsuario() {
-
-    if (validarAltaPersona()) {
-        // Proceso
-
-        var oPersona = {
-            DNI: formularioAlta.dni.value.trim(),
-            nombre: formularioAlta.inputNombre.value.trim(),
-            apellidos:  formularioAlta.inputApellidos.value.trim()
-        };
-
-        var sPersona = JSON.stringify(oPersona);
-        var sParametros = "datos=" + sPersona;
-
-        $.post("./php/altaPersona.php", sParametros, procesoRespuestaAltaPersona, 'json');
-    }
-
-}
-
-function procesoRespuestaAltaPersona(oDatos, sStatus, oXHR) {
-
-    if (oDatos.error) {
-        alert(oDatos.mensaje);
-    } else {
-        alert(oDatos.mensaje);
-        formularioAlta.reset();
-        $("#divFormularioAlta").hide("normal");
-    }
-}
-
-
-function validarAltaPersona() {
-
-    var bValido = true;
-    var sError = "";
-
-    if (formularioAlta.dni.value.trim().length == 0 ||
-    formularioAlta.inputNombre.value.trim().length == 0 ||
-    formularioAlta.inputApellidos.value.trim().length == 0) {
-        sError += "Campos no rellenos";
-        bValido = false;
-    }
-
-    if (bValido == false) {
-        alert(sError);
-    }
-    return bValido;
-}
-
-
 
 
 
@@ -272,3 +224,92 @@ function loadXMLDoc(filename) {
     return xhttp.responseXML;
 }
 
+function bajaUsuario() {
+    if (validarBajaPersona()) {
+
+
+
+        $.ajax({
+            type: "post",
+            url: "php/bajaUsuario.php",
+            data: "dni="+ formularioBaja.quitar.value.trim(),
+            dataType: "json",
+            success: procesoRespuestaBajaPersona
+        });
+    }
+}
+
+function procesoRespuestaBajaPersona(oDatos, sStatus, oXHR) {
+    console.log(oDatos.mensaje);
+    if (oDatos.error) {
+        alert(oDatos.mensaje);
+    } else {
+        alert(oDatos.mensaje);
+        formularioBaja.reset();
+    }
+}
+
+function altaUsuario() {
+    if (validarAltaPersona()) {
+        // Proceso
+
+        var oPersona = {
+            DNI: formularioAlta.dni.value.trim(),
+            nombre: formularioAlta.inputNombre.value.trim(),
+            apellidos:  formularioAlta.inputApellidos.value.trim()
+        };
+
+        var sPersona = JSON.stringify(oPersona);
+        var sParametros = "datos=" + sPersona;
+
+        $.post("php/altaUsuario.php", sParametros, procesoRespuestaAltaPersona, 'json');
+    }
+
+}
+
+function procesoRespuestaAltaPersona(oDatos, sStatus, oXHR) {
+
+    if (oDatos.error) {
+        alert(oDatos.mensaje);
+    } else {
+        alert(oDatos.mensaje);
+        formularioAlta.reset();
+    }
+}
+
+
+
+function validarBajaPersona() {
+
+    var bValido = true;
+    var sError = "";
+
+    if (formularioBaja.quitar.value.trim().length == 0) {
+        sError += "Campos no rellenos";
+        bValido = false;
+    }
+
+    if (bValido == false) {
+        alert(sError);
+    }
+    return bValido;
+}
+
+
+function validarAltaPersona() {
+
+    var bValido = true;
+    var sError = "";
+
+    if (formularioAlta.dni.value.trim().length == 0 ||
+    formularioAlta.inputNombre.value.trim().length == 0 ||
+    formularioAlta.inputApellidos.value.trim().length == 0) {
+        sError += "Campos no rellenos";
+        bValido = false;
+    }
+
+    if (bValido == false) {
+        alert(sError);
+    }
+    return bValido;
+}
