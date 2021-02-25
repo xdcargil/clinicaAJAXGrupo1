@@ -449,7 +449,7 @@ function objetoXHR() {
   
     oAJAX.addEventListener("readystatechange", respuestatHtml);
   
-    oAJAX.open("GET", "PHP/getClientesHTMLConFiltro.php?dni="+dni, true);
+    oAJAX.open("GET", "PHP/getClientesHTMLConFiltros.php?dni="+dni, true);
   //puede que de fallo
     oAJAX.send(null);
 }
