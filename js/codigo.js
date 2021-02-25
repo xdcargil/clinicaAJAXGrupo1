@@ -2,6 +2,7 @@
 
 
 
+rellenarLocalStorage();
 
 //limpiar toda la pantalla nada mas empezar
 limpiaPantalla();
@@ -182,17 +183,22 @@ function mostrarListado3() {
 
 
 
+//LOCAL STORAGE
 
 
+function rellenarLocalStorage() {
+  
+    if (localStorage["clientes"] != undefined) {
 
+    } else {
+      $.get("php/getClientes.php", null, procesoRespuestaGetLugares, 'html');
+    }
+}
 
+function procesoRespuestaGetLugares(sHTML) {
+    localStorage["clientes"] = sHTML;
 
-
-
-
-
-
-
+}
 
 
 
